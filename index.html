@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lista de Presentes</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>Lista de Presentes</h1>
+  <ul id="gift-list"></ul>
+
+  <div id="form-container" class="hidden">
+    <h2>Reservar item</h2>
+    <input type="text" id="name" placeholder="Seu nome" />
+    <button onclick="confirmReservation()">Confirmar</button>
+    <button onclick="cancel()">Cancelar</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
