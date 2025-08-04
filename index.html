@@ -1,20 +1,23 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lista de Presentes</title>
+  <title>Chá de Casa Nova</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>Lista de Presentes</h1>
-  <ul id="gift-list"></ul>
+  <h1>Chá de Casa Nova</h1>
+  <p>Olá! Veja nossa lista de presentes e reserve o item que quiser nos dar. Obrigado pela presença.</p>
+  <div class="grid" id="gift-list"></div>
 
   <div id="form-container" class="hidden">
     <h2>Reservar item</h2>
     <input type="text" id="name" placeholder="Seu nome" />
+    <br/>
     <button onclick="confirmReservation()">Confirmar</button>
-    <button onclick="cancel()">Cancelar</button>
+    <button class="cancel" onclick="cancel()">Cancelar</button>
   </div>
 
   <script src="script.js"></script>

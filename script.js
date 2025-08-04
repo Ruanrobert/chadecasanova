@@ -4,18 +4,32 @@ let reservations = JSON.parse(localStorage.getItem("reservations") || '{}');
 let selectedItem = null;
 
 function updateList() {
-  const ul = document.getElementById("gift-list");
-  ul.innerHTML = "";
+  const container = document.getElementById("gift-list");
+  container.innerHTML = "";
   giftList.forEach(item => {
-    const li = document.createElement("li");
-    li.textContent = item;
+    const card = document.createElement("div");
+    card.className = "card";
+    const label = document.createElement("span");
+    label.textContent = item;
+    card.appendChild(label);
+
     if (reservations[item]) {
-      li.classList.add("reserved");
-      li.innerHTML += ` - Reservado por {reservations[item]} <button onclick="releaseItem('{item}')">Cancelar</button>`;
+      card.classList.add("reserved");
+      const reservedBy = document.createElement("small");
+      reservedBy.textContent = `Reservado por {reservations[item]}`;
+      const cancelBtn = document.createElement("button");
+      cancelBtn.textContent = "Cancelar";
+      cancelBtn.className = "cancel";
+      cancelBtn.onclick = () => releaseItem(item);
+      card.appendChild(reservedBy);
+      card.appendChild(cancelBtn);
     } else {
-      li.addEventListener("click", () => openForm(item));
+      const btn = document.createElement("button");
+      btn.textContent = "Reservar";
+      btn.onclick = () => openForm(item);
+      card.appendChild(btn);
     }
-    ul.appendChild(li);
+    container.appendChild(card);
   });
 }
 
@@ -31,6 +45,7 @@ function confirmReservation() {
     localStorage.setItem("reservations", JSON.stringify(reservations));
     selectedItem = null;
     document.getElementById("form-container").classList.add("hidden");
+    document.getElementById("name").value = "";
     updateList();
   }
 }
@@ -38,6 +53,7 @@ function confirmReservation() {
 function cancel() {
   selectedItem = null;
   document.getElementById("form-container").classList.add("hidden");
+  document.getElementById("name").value = "";
 }
 
 function releaseItem(item) {
