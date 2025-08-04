@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;600&display=swap');
 
 body {
@@ -75,31 +74,3 @@ button:hover {
 }
 
 button.cancel {
-  background-color: #d9534f;
-}
-
-button.cancel:hover {
-  background-color: #c9302c;
-}
-
-#form-container {
-  background: #fff0f3;
-  padding: 20px;
-  border-radius: 10px;
-  border: 1px solid #f3cdd4;
-  max-width: 400px;
-  margin: 30px auto;
-  text-align: center;
-}
-
-input {
-  padding: 8px;
-  width: 80%;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  margin-bottom: 10px;
-}
-
-.hidden {
-  display: none;
-}
